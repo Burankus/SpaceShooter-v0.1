@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://enke2m7vfkcr"]
+
+[ext_resource type="Script" uid="uid://dstcoc6e21f8a" path="res://resources/resources code/stats.gd" id="1_qp4hx"]
+
+[resource]
+script = ExtResource("1_qp4hx")
+hp = 5.0
+firing_speed = 0.0
+speed = 0.0
+shield = false
+metadata/_custom_type_script = "uid://dstcoc6e21f8a"
