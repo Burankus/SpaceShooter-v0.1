@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dt3od1fjhawff"]
+
+[ext_resource type="Script" uid="uid://d1mw8jmxcx3a5" path="res://script/enemies scripts/shooting_enemy.gd" id="1_kmrgj"]
+[ext_resource type="Texture2D" uid="uid://dqtvetjfbjtku" path="res://icon.svg" id="2_uwdje"]
+[ext_resource type="Script" uid="uid://beof0stv3n86q" path="res://script/enemies scripts/bullet_pivot.gd" id="3_uwdje"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkmt4"]
+size = Vector2(97, 95)
+
+[node name="ShootingEnemy" type="CharacterBody2D"]
+script = ExtResource("1_kmrgj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_uwdje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_fkmt4")
+
+[node name="BulletPivot" type="Marker2D" parent="."]
+script = ExtResource("3_uwdje")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="BulletPivot"]
+position = Vector2(0, 56)
+
+[node name="Sprite2D" type="Sprite2D" parent="BulletPivot"]
+position = Vector2(0, 64)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("2_uwdje")

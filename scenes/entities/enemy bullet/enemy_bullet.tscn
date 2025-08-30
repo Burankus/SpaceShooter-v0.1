@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgl7co8fbvg1v"]
+
+[ext_resource type="Script" uid="uid://bggj88ux6ppy1" path="res://script/enemies scripts/enemy_bullet.gd" id="1_eloyw"]
+[ext_resource type="Texture2D" uid="uid://ovw2bui4bm5b" path="res://assets/enemies/Enemy_projectile (16 x 16).png" id="2_eloyw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eloyw"]
+size = Vector2(12, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8foqo"]
+atlas = ExtResource("2_eloyw")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttdov"]
+atlas = ExtResource("2_eloyw")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_eloyw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8foqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttdov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="EnemyBullet" type="Area2D"]
+top_level = true
+collision_layer = 32
+script = ExtResource("1_eloyw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.73536e-08, 2.98023e-08)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_eloyw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_eloyw")
+frame_progress = 0.165381
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

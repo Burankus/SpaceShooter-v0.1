@@ -1,0 +1,154 @@
+[gd_scene load_steps=13 format=3 uid="uid://bbc3yleurl7l6"]
+
+[ext_resource type="Script" uid="uid://de1kedbwct8uc" path="res://script/menus/game_over.gd" id="1_q7h0p"]
+[ext_resource type="Script" uid="uid://c5w6cncag6fe0" path="res://script/ParallaxBackground.gd" id="2_t0ul2"]
+[ext_resource type="Texture2D" uid="uid://bmoi7bg8ios7x" path="res://assets/background/background_4.png" id="3_yp760"]
+[ext_resource type="Texture2D" uid="uid://rdow48jcfkh" path="res://assets/background/background_3.png" id="4_nmnd7"]
+[ext_resource type="Texture2D" uid="uid://dvcij8blg7lka" path="res://assets/background/background_2.png" id="5_p1a8c"]
+[ext_resource type="Texture2D" uid="uid://cjwd0dvv1utqb" path="res://assets/background/background_1.png" id="6_cxfwe"]
+[ext_resource type="FontFile" uid="uid://eor262uckfwj" path="res://assets/fonts/Ithaca-LVB75.ttf" id="7_slxws"]
+[ext_resource type="FontFile" uid="uid://dvv537g4db5fg" path="res://assets/fonts/PixelatedEleganceRegular-ovyAA.ttf" id="8_e5o4x"]
+[ext_resource type="Script" uid="uid://ccoeiwnyr32nf" path="res://script/menus/button.gd" id="8_yp760"]
+[ext_resource type="AudioStream" uid="uid://h8dsevn6gfa8" path="res://assets/sfx/click.wav" id="9_i6g4m"]
+[ext_resource type="AudioStream" uid="uid://buu4o06dt6hig" path="res://assets/sfx/bgm/stg_noloop008.ogg" id="10_t0ul2"]
+[ext_resource type="AudioStream" uid="uid://cdgtn50tb64d1" path="res://assets/sfx/explosion.wav" id="12_nmnd7"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_q7h0p")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -102
+
+[node name="Blackbakcground" type="ColorRect" parent="CanvasLayer"]
+offset_right = 544.0
+offset_bottom = 960.0
+color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+scroll_offset = Vector2(0, 0.5)
+script = ExtResource("2_t0ul2")
+
+[node name="StarsLayer4" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+y_sort_enabled = true
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/StarsLayer4"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_yp760")
+centered = false
+flip_v = true
+
+[node name="StarsLayer3" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+y_sort_enabled = true
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/StarsLayer3"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_nmnd7")
+centered = false
+flip_v = true
+
+[node name="StarsLayer2" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+y_sort_enabled = true
+motion_scale = Vector2(0.7, 0.7)
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/StarsLayer2"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_p1a8c")
+centered = false
+flip_v = true
+
+[node name="StarsLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
+y_sort_enabled = true
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="CanvasLayer/ParallaxBackground/StarsLayer"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("6_cxfwe")
+centered = false
+flip_v = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="MainMenuUI" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MainMenuUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 60.0
+offset_right = 112.0
+offset_bottom = 259.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Retry" type="Button" parent="UI/MainMenuUI/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_slxws")
+theme_override_font_sizes/font_size = 50
+text = "Retry "
+script = ExtResource("8_yp760")
+
+[node name="Quit" type="Button" parent="UI/MainMenuUI/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_slxws")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+
+[node name="Label" type="Label" parent="UI/MainMenuUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 771.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_e5o4x")
+theme_override_font_sizes/font_size = 50
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="UI/MainMenuUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 573.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("8_e5o4x")
+theme_override_font_sizes/font_size = 65
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_i6g4m")
+volume_db = -5.0
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_t0ul2")
+
+[node name="Death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_nmnd7")
+volume_db = -10.0
+
+[connection signal="pressed" from="UI/MainMenuUI/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="UI/MainMenuUI/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

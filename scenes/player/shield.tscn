@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bdag7b5utdjw"]
+
+[ext_resource type="Script" uid="uid://dcwcdsudtx3gp" path="res://script/player scripts/shield.gd" id="1_lsl6d"]
+[ext_resource type="Texture2D" uid="uid://c6jsi05yc8p7l" path="res://assets/power ups/SpaceShooterAssetPack_Miscellaneous.png" id="1_q3hpy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsl6d"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m61gp"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6x5r"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3h12n"]
+atlas = ExtResource("1_q3hpy")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yl6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsl6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m61gp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6x5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3h12n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q3hpy"]
+radius = 64.0
+
+[node name="Shield" type="Area2D"]
+collision_mask = 34
+script = ExtResource("1_lsl6d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(6, 6.008)
+sprite_frames = SubResource("SpriteFrames_5yl6w")
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_q3hpy")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://bixyicnpnyrt2"]
+
+[ext_resource type="PackedScene" uid="uid://fq8mtpkiwcx2" path="res://scenes/player/player.tscn" id="1_6312j"]
+[ext_resource type="PackedScene" uid="uid://dpd4uemhtcggm" path="res://scenes/entities/basic_enemy.tscn" id="2_ybdc1"]
+[ext_resource type="PackedScene" uid="uid://bke2dfw45ag3q" path="res://scenes/power ups/increase_bulletspeed_powerup.tscn" id="4_q46b8"]
+[ext_resource type="PackedScene" uid="uid://b0bl70jho25vm" path="res://scenes/power ups/muzzle_up_powerup.tscn" id="7_quawd"]
+
+[node name="Main Scene" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6312j")]
+position = Vector2(274, 810)
+
+[node name="BasicEnemy" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(139, 248)
+
+[node name="BasicEnemy2" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(251, 276)
+
+[node name="BasicEnemy3" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(402, 273)
+
+[node name="BasicEnemy4" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(496, 286)
+
+[node name="MyzzleUpPowerup" parent="." instance=ExtResource("7_quawd")]
+position = Vector2(307, 616)
+
+[node name="IncreaseBulletSpeedPowerup" parent="." instance=ExtResource("4_q46b8")]
+position = Vector2(213, 622)
+
+[node name="IncreaseBulletSpeedPowerup2" parent="." instance=ExtResource("4_q46b8")]
+position = Vector2(386, 634)
+
+[node name="IncreaseBulletSpeedPowerup3" parent="." instance=ExtResource("4_q46b8")]
+position = Vector2(356, 536)
+
+[node name="MyzzleUpPowerup2" parent="." instance=ExtResource("7_quawd")]
+position = Vector2(208, 552)
+
+[node name="MyzzleUpPowerup3" parent="." instance=ExtResource("7_quawd")]
+position = Vector2(278, 550)
+
+[node name="IncreaseBulletSpeedPowerup4" parent="." instance=ExtResource("4_q46b8")]
+position = Vector2(136, 675)
+
+[node name="BasicEnemy5" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(93, 343)
+
+[node name="BasicEnemy6" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(254, 378)
+
+[node name="BasicEnemy7" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(279, 190)
+
+[node name="BasicEnemy8" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(225, 103)
+
+[node name="BasicEnemy9" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(439, 134)
+
+[node name="BasicEnemy10" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(140, 101)
+
+[node name="BasicEnemy11" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(366, 51)
+
+[node name="BasicEnemy12" parent="." instance=ExtResource("2_ybdc1")]
+position = Vector2(386, 385)

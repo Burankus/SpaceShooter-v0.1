@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0bl70jho25vm"]
+
+[ext_resource type="Script" uid="uid://lkjukvrgu4mf" path="res://script/power up scripts/muzzle_up_powerup.gd" id="1_dg3wc"]
+[ext_resource type="Texture2D" uid="uid://2h7gxmnmnra4" path="res://assets/power ups/Circle_+_Square_+_Missile_pick-ups (16 x 16).png" id="2_dg3wc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcxk0"]
+atlas = ExtResource("2_dg3wc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xthva"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcxk0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_touj0"]
+radius = 24.0
+
+[node name="MyzzleUpPowerup" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_dg3wc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_xthva")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_touj0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, -0.499999)
+scale = Vector2(1.9, 1.85)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

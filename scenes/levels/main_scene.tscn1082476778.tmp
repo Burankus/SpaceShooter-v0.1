@@ -1,0 +1,134 @@
+[gd_scene load_steps=11 format=3 uid="uid://bixyicnpnyrt2"]
+
+[ext_resource type="Script" uid="uid://nahrwcmrcogg" path="res://script/game.gd" id="1_3ulyp"]
+[ext_resource type="PackedScene" uid="uid://1qjd1sxotwtc" path="res://scenes/UI/hud.tscn" id="2_q46b8"]
+[ext_resource type="Script" uid="uid://c5w6cncag6fe0" path="res://script/ParallaxBackground.gd" id="3_3ulyp"]
+[ext_resource type="Texture2D" uid="uid://cjwd0dvv1utqb" path="res://assets/background/background_1.png" id="3_quawd"]
+[ext_resource type="Texture2D" uid="uid://bmoi7bg8ios7x" path="res://assets/background/background_4.png" id="4_brv2t"]
+[ext_resource type="Texture2D" uid="uid://rdow48jcfkh" path="res://assets/background/background_3.png" id="4_q46b8"]
+[ext_resource type="Texture2D" uid="uid://dvcij8blg7lka" path="res://assets/background/background_2.png" id="5_8hc5g"]
+
+[sub_resource type="Curve2D" id="Curve2D_ybdc1"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 619, 548, 0, 0, 0, 0, 429, 289, 100.1, -1.1, -100.1, 1.1, 262, 202, 2.2, -97.9, -2.2, 97.9, 71, 388, -125.4, 11, 125.4, -11, 272, 569, 0, 0, 0, 0, 441, 461, 2.2, 79.2, -2.2, -79.2, 467, 320, 0, 0, 0, 0, 399, 186, 96.8, -1.1, -96.8, 1.1, 256, 128, 9.9, -259.6, -9.9, 259.6, -60, 475)
+}
+point_count = 10
+
+[sub_resource type="Curve2D" id="Curve2D_3ulyp"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -64, 576, 0, 0, 0, 0, 64, 320, 0, 0, 0, 0, 32, 192, 0, 0, 0, 0, 128, 128, 0, 0, 0, 0, 256, 64, 0, 0, 0, 0, 384, 128, 0, 0, 0, 0, 480, 192, 0, 0, 0, 0, 448, 320, 0, 0, 0, 0, 576, 576)
+}
+point_count = 9
+
+[sub_resource type="Curve2D" id="Curve2D_q46b8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -32, 192, -30.8, 28.6, 30.8, -28.6, 32, 192, -53.9, 2.2, 53.9, -2.2, 96, 64, -60.5, 3.3, 60.5, -3.3, 160, 256, -69.3, 2.2, 69.3, -2.2, 256, 64, -64.9, 0, 64.9, 0, 352, 256, -49.5, 2.2, 49.5, -2.2, 440, 72, -34.1, -35.2, 34.1, 35.2, 504, 192, 0, 0, 0, 0, 576, 192)
+}
+point_count = 9
+
+[node name="Main Scene" type="Node2D"]
+z_index = -10
+script = ExtResource("1_3ulyp")
+metadata/_edit_vertical_guides_ = [-296.0]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -102
+
+[node name="Blackbakcground" type="ColorRect" parent="CanvasLayer"]
+offset_right = 544.0
+offset_bottom = 960.0
+color = Color(0.00566115, 0.00566115, 0.00566115, 1)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("3_3ulyp")
+layer_speeds = [0.2, 0.4, 0.6, 0.8]
+
+[node name="StarsLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+y_sort_enabled = true
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="ParallaxBackground/StarsLayer4"]
+texture_filter = 1
+position = Vector2(-278.281, -1244.57)
+scale = Vector2(2.03125, 4.32142)
+texture = ExtResource("3_quawd")
+offset = Vector2(265, 400)
+flip_v = true
+
+[node name="StarsLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+y_sort_enabled = true
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="ParallaxBackground/StarsLayer3"]
+texture_filter = 1
+position = Vector2(-278.281, -1244.57)
+scale = Vector2(2.03125, 4.32142)
+texture = ExtResource("4_brv2t")
+offset = Vector2(265, 400)
+flip_v = true
+
+[node name="StarsLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+y_sort_enabled = true
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="ParallaxBackground/StarsLayer2"]
+texture_filter = 1
+position = Vector2(-278.281, -1244.57)
+scale = Vector2(2.03125, 4.32142)
+texture = ExtResource("5_8hc5g")
+offset = Vector2(265, 400)
+flip_v = true
+
+[node name="StarsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+y_sort_enabled = true
+motion_mirroring = Vector2(512, 896)
+
+[node name="StarfieldSprite" type="Sprite2D" parent="ParallaxBackground/StarsLayer"]
+texture_filter = 1
+position = Vector2(-278.281, -1244.57)
+scale = Vector2(2.03125, 4.32142)
+texture = ExtResource("4_q46b8")
+offset = Vector2(265, 400)
+flip_v = true
+
+[node name="PlayerSpawnPos" type="Marker2D" parent="."]
+position = Vector2(256, 832)
+
+[node name="EnemyContainer" type="Node2D" parent="."]
+
+[node name="EnemyPath1" type="Path2D" parent="EnemyContainer"]
+curve = SubResource("Curve2D_ybdc1")
+
+[node name="EnemyPath2" type="Path2D" parent="EnemyContainer"]
+curve = SubResource("Curve2D_3ulyp")
+
+[node name="EnemyPath3" type="Path2D" parent="EnemyContainer"]
+curve = SubResource("Curve2D_q46b8")
+
+[node name="UI Layer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="UI Layer" instance=ExtResource("2_q46b8")]
+offset_left = 936.0
+offset_top = -48.0
+offset_right = 944.0
+offset_bottom = -48.0
+
+[node name="PopcornEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="PopcornSpawnOffsetTimer" type="Timer" parent="."]
+wait_time = 0.3
+
+[node name="ShooterEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 15.0
+autostart = true
+
+[node name="BomberEnemySpawnTimer" type="Timer" parent="."]
+wait_time = 12.0
+autostart = true
+
+[connection signal="timeout" from="PopcornEnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="PopcornSpawnOffsetTimer" to="." method="_on_spawn_offset_timer_timeout"]
+[connection signal="timeout" from="ShooterEnemySpawnTimer" to="." method="_on_shooter_enemy_spawn_timer_timeout"]
+[connection signal="timeout" from="BomberEnemySpawnTimer" to="." method="_on_bomber_enemy_spawn_timer_timeout"]

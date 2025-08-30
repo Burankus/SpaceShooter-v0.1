@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://fq8mtpkiwcx2"]
+
+[ext_resource type="Script" uid="uid://c7syvb0u63l2d" path="res://script/player scripts/player_script.gd" id="1_dovo2"]
+[ext_resource type="Texture2D" uid="uid://dqtvetjfbjtku" path="res://icon.svg" id="2_gmlin"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dovo2"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(128, 128)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_dovo2")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_gmlin")
+
+[node name="Collision Detection" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dovo2")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_gmlin")
+debug_color = Color(0.84087, 0, 0.0921687, 0.42)
+
+[node name="Muzzle" type="Marker2D" parent="."]
+position = Vector2(0, -80)
+
+[node name="Muzzle2" type="Marker2D" parent="."]
+position = Vector2(-32, -72)
+
+[node name="Muzzle3" type="Marker2D" parent="."]
+position = Vector2(32, -72)
+
+[node name="Bullet_Speed" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="timeout" from="Bullet_Speed" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Bullet_Speed" to="." method="_on_bullet_speed_timeout"]

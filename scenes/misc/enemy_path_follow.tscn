@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw8k3tue1jovk"]
+
+[ext_resource type="Script" uid="uid://dxa0e5h23gl4" path="res://script/enemies scripts/enemy_path_follow.gd" id="1_dbs3m"]
+[ext_resource type="PackedScene" uid="uid://dpd4uemhtcggm" path="res://scenes/entities/basic_enemy.tscn" id="2_soglx"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+loop = false
+script = ExtResource("1_dbs3m")
+
+[node name="BasicEnemy" parent="." instance=ExtResource("2_soglx")]
+position = Vector2(-2.04224, -3.9786)

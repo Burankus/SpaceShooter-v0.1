@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://c64jy0ir122bd"]
+
+[ext_resource type="Script" uid="uid://dhn1h4ogiow7e" path="res://script/power up scripts/ally_ship_powerup.gd" id="1_jdnck"]
+[ext_resource type="Texture2D" uid="uid://c5an46bcvkydt" path="res://assets/power ups/Power_item (16 x 16).png" id="2_jdnck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4pi3y"]
+atlas = ExtResource("2_jdnck")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0io1t"]
+atlas = ExtResource("2_jdnck")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpqlp"]
+atlas = ExtResource("2_jdnck")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_165xl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4pi3y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0io1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpqlp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_touj0"]
+radius = 19.0263
+
+[node name="AllyShipPowerup" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_jdnck")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_165xl")
+frame_progress = 0.681991
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_touj0")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.76837e-07, -0.499999)
+scale = Vector2(1.9, 1.85)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

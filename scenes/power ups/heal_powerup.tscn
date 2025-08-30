@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dix86grmfqony"]
+
+[ext_resource type="Script" uid="uid://dwrlnhaummbnh" path="res://script/power up scripts/heal_powerup.gd" id="1_dk8tf"]
+[ext_resource type="Texture2D" uid="uid://pp73cjwxcb6e" path="res://assets/power ups/Heal.png" id="2_dk8tf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5h03"]
+atlas = ExtResource("2_dk8tf")
+region = Rect2(0, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u1nsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5h03")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aiqts"]
+radius = 24.0
+
+[node name="HealPowerup" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_dk8tf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_u1nsy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_aiqts")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
