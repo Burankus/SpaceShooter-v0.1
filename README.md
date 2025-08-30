@@ -18,3 +18,13 @@ Keyboard:
 Controller:
 - Move: Left stick
 - Shoot: A
+
+### Credits:
+Assets used:
+- Player, enemies, speedup, ally ship and muzzle up sprites from “Mini Pixel Pack 3” by GrafxKid (https://grafxkid.itch.io/mini-pixel-pack-3)
+- Parallax star background from “Starry Space Parallaxing Background” by Enjl (https://enjl.itch.io/background-starry-space)
+- Shield and heal power up sprites from “Space Shooter Asset Pack” by Gustavo Vituri (https://gvituri.itch.io/space-shooter)
+
+Menu and Game BGM:
+- Menu: “End Code” from SHMUP BGM Pack by doranarasi (https://doranarasi.itch.io/shmup-bgm-pack)
+- BGM: “Action Report” from SHMUP BGM Pack by doranarasi (https://doranarasi.itch.io/shmup-bgm-pack)
